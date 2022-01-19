@@ -13,7 +13,7 @@ $pagina = str_replace(".php", "", $archivo);
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title><?php if($pagina == "index") {
 
-    echo "GDLWebCamp";
+    echo "YouConference";
 
   } else {
 
@@ -81,21 +81,12 @@ $pagina = str_replace(".php", "", $archivo);
   <header class="site-header">
       <div class="hero">
           <div class="contenido-header">
-              <nav class="redes-sociales">
-                  <a href="https://facebook.com/carlos.e.talavera" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                  <a href="https://twitter.com/@CharlieT0218" target="_blank"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-pinterest" target="_blank"></i></a>
-                  <a href="#"><i class="fab fa-youtube" target="_blank"></i></a>
-                  <a href="https://instagram.com/carlos_talavera18" target="_blank"><i class="fab fa-instagram"></i></a>
-              </nav>
+              
               <div class="informacion-evento">
-                <div class="clearfix">
-                  <p class="fecha"><i class="fas fa-calendar-alt"></i> 13-15 Dic</p>
-                  <p class="ciudad"><i class="fas fa-map-marker-alt"></i> Guadalajara, MX</p>
-                </div>
+               
 
-                <h1 class="nombre-sitio">GdlWebCamp</h1>
-                <p class="slogan">La mejor conferencia de <span>diseño web</span></p>
+                <h1 class="nombre-sitio">YouConf</h1>
+                <p class="slogan">El mejor sitio de eventos <span>YCF</span></p>
               </div> <!--.informacion-evento-->
           </div>
       </div> <!--.hero-->
@@ -104,11 +95,7 @@ $pagina = str_replace(".php", "", $archivo);
 
   <div class="barra">
       <div class="contenedor clearfix">
-          <div class="logo">
-              <a href="index.php">
-                <img src="img/logo.svg" alt="Logo SVG GdlWebCamp">
-              </a>
-          </div>
+        
 
           <div class="menu-movil">
               <span></span>
@@ -117,10 +104,10 @@ $pagina = str_replace(".php", "", $archivo);
           </div>
 
           <nav class="navegacion-principal clearfix">
-              <a href="conferencia.php" id="conferencia">Conferencia</a>
-              <a href="calendario.php" id="calendario">Calendario</a>
-              <a href="invitados.php" id="invitados">Invitados</a>
-              <a href="registro.php" id="registro">Reservaciones</a>
+              <a href="#" id="conferencia">Conferencia</a>
+              <a href="#" id="calendario">Calendario</a>
+              <a href="#" id="invitados">Invitados</a>
+              <a href="#" id="registro">Reservaciones</a>
           </nav>
       </div> <!--.contenedor clearfix-->
   </div> <!--.barra-->

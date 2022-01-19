@@ -9,7 +9,7 @@ if($pagina !== "login") {
 
 <footer class="main-footer">
     <div >
-      <b>YouConference</b> Linea Base 1
+      <b>YouConference</b> Linea Base 3
     </div>
     
   </footer>
