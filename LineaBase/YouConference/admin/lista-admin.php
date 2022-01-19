@@ -64,7 +64,8 @@
                           echo "<td>" . $registro['usuario'] . "</td>";
                           echo "<td>" . $registro['nombre'] . "</td>";
                           
-                         
+                          echo "<td><a href='editar-admin.php?id=" . $registro['id_admin'] . "' class='btn bg-orange btn-flat margin'><i class='fa fa-pencil-alt'></i></a><a href='#' data-id='{$registro["id_admin"]}' data-tipo='admin' class='btn bg-maroon btn-flat margin borrar_registro'><i class='fa fa-trash'></i></a></td>"; // Da el error de cellIndex cuando no coincide el número de td con el de th
+                          echo "</tr>";
 
                         }
 

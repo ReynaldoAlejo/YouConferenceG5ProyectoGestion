@@ -149,7 +149,216 @@ if(peticion_fetch()) {
         }
         //eliminar y actualizar
         
+        else if($_POST['accion'] == "actualizar") {
 
+            $id = $_POST['id'];
+            $usuario = $_POST['usuario'];
+            $nombre = $_POST['nombre'];
+            $nivel = $_POST['nivel'];
+            $fecha = date("Y-m-d h:i:s");
+            $respuestas = array();
+
+            try {
+
+                $stmt = $conn->prepare("UPDATE admins SET usuario = ?, nombre = ?, ult_edicion = ?, nivel = ? WHERE id_admin = ?");
+                $stmt->bind_param("sssii", $usuario, $nombre, $fecha, $nivel, $id);
+                $stmt->execute();
+
+                if($stmt->affected_rows > 0) {
+
+                    $respuesta = array(
+                        'status' => "OK"
+                    );
+
+                } else {
+
+                    $respuesta = array(
+                        'status' => $stmt->error_list
+                    );
+
+                }
+
+                foreach($respuesta as $clave => $valor) {
+
+                    $respuestas[$clave] = $valor;
+
+                }
+
+                $stmt->close();
+
+                } catch(Exception $e) {
+
+                    die("Error: " . $e->getMessage());
+
+                }
+
+            if(isset($_POST['passNueva'])) {
+            
+                $passNueva = $_POST['passNueva'];
+                $hash = password_hash($passNueva, PASSWORD_BCRYPT, array('cost' => 12));
+
+                try {
+
+                    $stmt = $conn->prepare("UPDATE admins SET password = ? WHERE id_admin = ?");
+                    $stmt->bind_param("si", $hash, $id);
+                    $stmt->execute();
+
+                    if($stmt->affected_rows > 0) {
+
+                        $respuesta2 = array(
+                            'status2' => "OK"
+                        );
+
+                    } else {
+
+                        $respuesta2 = array(
+                            'status2' => $stmt->error_list
+                        );
+
+                    }
+
+                    foreach($respuesta2 as $clave => $valor) {
+
+                        $respuestas[$clave] = $valor;
+
+                    }
+
+                    $stmt->close();
+
+                } catch(Exception $e) {
+
+                    die("Error: " . $e->getMessage());
+
+                }
+
+            }
+
+            if(isset($_FILES['inputFile']['name'][0])) {
+
+                $nombre_imagen = $_FILES['inputFile']['name'][0];
+                $tipo_imagen = $_FILES['inputFile']['type'][0];
+                $tamagno_imagen = $_FILES['inputFile']['size'][0];
+
+                if($tamagno_imagen <= 2097152) {
+
+                   /* $carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/gdlwebcamp/admin/img/admins/'; //DOCUMENT_ROOT = htdocs en este caso*/
+
+                   $carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/img/invitados/';
+
+                    if($tipo_imagen == "image/jpeg" || $tipo_imagen == "image/jpg" || $tipo_imagen == "image/png" || $tipo_imagen == "image/gif") {
+
+                        //Mover la imagen del directorio temporal al directorio escogido
+
+                        if(move_uploaded_file($_FILES['inputFile']['tmp_name'][0], $carpeta_destino . $nombre_imagen)) {
+
+                            try {
+
+                                $stmt = $conn->prepare("UPDATE admins SET foto_perfil = ? WHERE id_admin = ?");
+                                $stmt->bind_param("si", $nombre_imagen, $id);
+                                $stmt->execute();
+
+                                if($stmt->affected_rows > 0) {
+
+                                    $respuesta3 = array(
+                                        'status3' => "OK"
+                                    );
+
+                                    if($id == $_SESSION['id']) {
+
+                                        $_SESSION['foto'] = $nombre_imagen;
+
+                                    }
+
+                                } else {
+
+                                    $respuesta3 = array(
+                                        'status3' => $stmt->error_list
+                                    );
+
+                                }
+
+                                foreach($respuesta3 as $clave => $valor) {
+
+                                    $respuestas[$clave] = $valor;
+
+                                }
+
+                                $stmt->close();
+
+                            } catch(Exception $e) {
+
+                                die("Error: " . $e->getMessage());
+
+                            }
+
+                        } else {
+
+                            $respuestas = array(
+                                'status' => "No se ha podido subir la imagen al servidor"
+                            );
+
+                        }
+
+                    } else {
+
+                        $respuestas = array(
+                            'status' => "Solo se pueden subir imágenes de los formatos especificados"
+                        );
+
+                    }
+
+                } else {
+
+                    $respuestas = array(
+                        'status' => "El tamaño de la imagen es demasiado grande"
+                    );
+
+                }
+
+            }
+
+            echo json_encode($respuestas);
+
+        }
+
+        else if($_POST['accion'] == 'eliminar') {
+
+            if(!empty($_POST['id'])) {
+
+                $id = (int) $_POST['id'];
+
+                try {
+
+                    $stmt = $conn->prepare("DELETE FROM admins WHERE id_admin = ?");
+                    $stmt->bind_param("i", $id);
+                    $stmt->execute();
+                    
+                    if($stmt->affected_rows > 0) {
+
+                        $respuesta = array(
+                            'status' => 'Correcto',
+                            'id_eliminado' => $id
+                        );
+
+                    } else {
+
+                        $respuesta = array(
+                            'status' => 'Error'
+                        );
+
+                    }
+
+                    echo json_encode($respuesta);
+
+                } catch(Exception $e) {
+
+                    die("Error: " . $e->getMessage());
+
+                }
+
+            }
+
+        }
         $conn->close();
 
     } else {
