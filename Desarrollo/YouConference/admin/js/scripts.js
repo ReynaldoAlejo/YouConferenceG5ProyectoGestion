@@ -453,7 +453,7 @@ function administradores() {
                     swal({
                         type: 'success',
                         title: 'Correcto',
-                        text: 'Bienvenido(a) ' + user,
+                        text: 'Bienvenid@ ' + user,
                         showConfirmButton: false
                     })
 

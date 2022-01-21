@@ -40,8 +40,9 @@ if(isset($_POST['enviar'])) {
     $pedido = productos_json($boletos, $camisas, $etiquetas);
 
     // Eventos
+    if(isset($_POST['registro'])) { $eventos = $_POST['registro']; }
 
-    $eventos = $_POST['registro'];
+   // $eventos = $_POST['registro'];
     $registro = eventos_json($eventos);
 
   }
@@ -144,13 +145,16 @@ $cantidad->setCurrency('USD') // Moneda
          ->setTotal($total) // Total, siempre poner aquí el precio más el envío
          ->setDetails($detalles); // Detalles
 
+
+
 $transaccion = new Transaction(); // Crear transacción
 $transaccion->setAmount($cantidad) // El monto con todos sus detalles
             ->setItemList($listaArticulos) // La lista de artículos
-            ->setDescription('Pago GDLWebCamp') // Descripción del pago
+            ->setDescription('Pago YouConference') // Descripción del pago
             ->setInvoiceNumber($idRegistro); // Número de factura para ubicar el pedido, identificador, en este caso es el ID insertado en la BD
 
 $redireccionar = new RedirectUrls();
+
 $redireccionar->setReturnUrl(URL_SITIO . "/pago_finalizado.php?id_pago={$id_registro}") // URL a la que el usuario será redirigido en caso de que el pago se haya hecho correctamente
               ->setCancelUrl(URL_SITIO . "/pago_finalizado.php?id_pago={$id_registro}"); // URL a la que el usuario será redirigido en caso de que haya cancelado la transacción
 

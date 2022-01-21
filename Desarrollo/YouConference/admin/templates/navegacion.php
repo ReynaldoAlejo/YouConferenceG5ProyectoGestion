@@ -26,11 +26,11 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menú de Administración</li>
-        <!-- <li>
-          <a href="dashboard">
+         <li>
+          <a href="dashboard.php">
             <i class="fa fa-tachometer-alt"></i> <span>Dashboard</span>
           </a>
-        </li>--> 
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-calendar"></i>

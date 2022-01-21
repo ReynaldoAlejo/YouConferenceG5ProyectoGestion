@@ -59,7 +59,8 @@
                           echo "<td>" . $registro['id_categoria'] . "</td>";
                           echo "<td>" . $registro['cat_evento'] . "</td>";
                           echo "<td><button style='margin-top: 1vh;' class='btn_icono btn bg-teal-active btn-block'><i class='" . $registro['icono'] . "'></i></button></td>";
-                          
+                          echo "<td><a href='editar-categoria.php?id=" . $registro['id_categoria'] . "' class='btn bg-orange btn-flat margin'><i class='fa fa-pencil-alt'></i></a><a href='#' data-id='{$registro["id_categoria"]}' data-tipo='categoria' class='btn bg-maroon btn-flat margin borrar_registro'><i class='fa fa-trash'></i></a></td>"; // Da el error de cellIndex cuando no coincide el número de td con el de th
+                          echo "</tr>";
 
                         }
 

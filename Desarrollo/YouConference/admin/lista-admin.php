@@ -43,8 +43,8 @@
                             <th>ID</th>
                             <th>Usuario</th>
                             <th>Nombre</th>
-                            <!--<th>Foto</th>
-                              <th>Antigüedad</th>
+                            <th>Foto</th>
+                            <!--  <th>Antigüedad</th>
                             <th>Última Edición (YYYY/MM/DD hh:mm:ss)</th>
                             <th>Nivel</th>-->
                             <th>Acciones</th>
@@ -63,7 +63,11 @@
                           echo "<td>" . $registro['id_admin'] . "</td>";
                           echo "<td>" . $registro['usuario'] . "</td>";
                           echo "<td>" . $registro['nombre'] . "</td>";
-                          
+                          echo "<td>" . $registro['foto_perfil'] . "</td>";
+                          //<img src='img/invitados/" . $registro['foto_perfil'] . "' style='max-width: 10%; max-height: 50%; padding: 0!important; margin: 0!important;'></td>";
+                          //echo "<td>" . fechas($registro['fecha_registro']) . "</td>";
+                          //echo "<td>" . $registro['ult_edicion'] . "</td>";
+                         // echo "<td>" . $registro['nivel'] . "</td>";
                           echo "<td><a href='editar-admin.php?id=" . $registro['id_admin'] . "' class='btn bg-orange btn-flat margin'><i class='fa fa-pencil-alt'></i></a><a href='#' data-id='{$registro["id_admin"]}' data-tipo='admin' class='btn bg-maroon btn-flat margin borrar_registro'><i class='fa fa-trash'></i></a></td>"; // Da el error de cellIndex cuando no coincide el número de td con el de th
                           echo "</tr>";
 

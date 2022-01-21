@@ -41,11 +41,15 @@ function eventos_json(&$eventos) {
 
   $eventos_json = array();
 
+  if (is_array($eventos) || is_object($eventos))
+{
   foreach($eventos as $evento) {
 
     $eventos_json['eventos'][] = $evento;
 
   }
+}
+  
 
   return json_encode($eventos_json);
 

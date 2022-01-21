@@ -72,7 +72,83 @@ if(peticion_fetch()) {
 
         }
         
-        //actualizar y eliminar
+        else if($_POST['accion'] == 'actualizar') {
+
+            $id = (int) $_POST['id'];
+            $nombre = $_POST['categoria'];
+            $icono = $_POST['icono'];
+
+            try {
+
+                $stmt = $conn->prepare("UPDATE categoria_evento SET cat_evento = ?, icono = ? WHERE id_categoria = ?");
+                $stmt->bind_param("ssi", $nombre, $icono, $id);
+                $stmt->execute();
+
+                if($stmt->affected_rows > 0) {
+
+                    $respuesta = array(
+                        'status' => 'Correcto',
+                        'accion' => $_POST['accion']
+                    );
+
+                } else {
+
+                    $respuesta = array(
+                        'status' => 'Error'
+                    );
+
+                }
+
+                $stmt->close();
+                echo json_encode($respuesta);
+
+            } catch(Exception $e) {
+
+                die("Error: " . $e->getMessage());
+
+            }
+
+        }
+
+        else if($_POST['accion'] == 'eliminar') {
+
+            if(!empty($_POST['id'])) {
+
+                $id = (int) $_POST['id'];
+
+                try {
+
+                $stmt = $conn->prepare("DELETE FROM categoria_evento WHERE id_categoria = ?");
+                $stmt->bind_param("i", $id);
+                $stmt->execute();
+
+                if($stmt->affected_rows > 0) {
+
+                    $respuesta = array(
+                        'status' => 'Correcto',
+                        'id_eliminado' => $id
+                    );
+
+                } else {
+
+                    $respuesta = array(
+                        'status' => 'Error'
+                    );
+
+                }
+
+                $stmt->close();
+                echo json_encode($respuesta);
+
+                } catch(Exception $e) {
+
+                    die("Error: " . $e->getMessage());
+
+                }
+
+            }
+
+        }
 
         $conn->close();
 

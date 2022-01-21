@@ -20,7 +20,7 @@
           <h3><i class="fa fa-warning text-red"></i> No tienes permiso para entrar a la página solicitada</h3>
 
           <p>
-            Intenta contactar con un administrador de nivel 1.
+            Intenta comunicarte con un administrador de nivel 1.
             Mientras tanto, puedes <a href="dashboard.php">regresar al inicio</a>.
           </p>
 

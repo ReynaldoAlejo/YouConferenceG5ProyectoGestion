@@ -81,12 +81,18 @@ $pagina = str_replace(".php", "", $archivo);
   <header class="site-header">
       <div class="hero">
           <div class="contenido-header">
-              
+              <nav class="redes-sociales">
+                  <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-pinterest" target="_blank"></i></a>
+                  <a href="#"><i class="fab fa-youtube" target="_blank"></i></a>
+                  <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+              </nav>
               <div class="informacion-evento">
-               
+                
 
                 <h1 class="nombre-sitio">YouConf</h1>
-                <p class="slogan">El mejor sitio de eventos <span>YCF</span></p>
+                <p class="slogan"> <span>El mejor sitio de eventos Educativos</span></p>
               </div> <!--.informacion-evento-->
           </div>
       </div> <!--.hero-->
@@ -95,7 +101,11 @@ $pagina = str_replace(".php", "", $archivo);
 
   <div class="barra">
       <div class="contenedor clearfix">
-        
+         <!-- <div class="logo">
+              <a href="index.php">
+                <img src="img/logo.svg" alt="Logo SVG GdlWebCamp">
+              </a>
+          </div>-->
 
           <div class="menu-movil">
               <span></span>
@@ -103,11 +113,16 @@ $pagina = str_replace(".php", "", $archivo);
               <span></span>
           </div>
 
+          
           <nav class="navegacion-principal clearfix">
-              <a href="#" id="conferencia">Conferencia</a>
-              <a href="#" id="calendario">Calendario</a>
-              <a href="#" id="invitados">Invitados</a>
+           
+              <a href="conferencia.php" id="conferencia">Evento</a>
+              <a href="calendario.php" id="calendario">Calendario</a>
+              <a href="invitados.php" id="invitados">Invitados</a>
               <a href="registro.php" id="registro">Comprar</a>
+            
+
+            
           </nav>
       </div> <!--.contenedor clearfix-->
   </div> <!--.barra-->

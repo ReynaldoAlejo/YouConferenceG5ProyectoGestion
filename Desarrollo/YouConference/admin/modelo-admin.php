@@ -147,7 +147,6 @@ if(peticion_fetch()) {
             echo json_encode($respuesta);
 
         }
-        //eliminar y actualizar
         
         else if($_POST['accion'] == "actualizar") {
 
@@ -359,6 +358,7 @@ if(peticion_fetch()) {
             }
 
         }
+
         $conn->close();
 
     } else {

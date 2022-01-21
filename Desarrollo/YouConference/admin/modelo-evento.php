@@ -87,12 +87,85 @@ if(peticion_fetch()) {
 
                 }
 
-            } 
-            //actualizar
+            } else if($_POST['accion'] == 'actualizar') {
+
+                $id = $_POST['id'];
+
+                try {
+
+                    $stmt = $conn->prepare("UPDATE eventos SET nombre_evento = ?, fecha_evento = ?, hora_evento = ?, id_cat_evento = ?, id_inv = ?, ult_edicion = ? WHERE evento_id = ?");
+                    $stmt->bind_param("sssiisi", $nombre_evento, $fecha, $hora_formateada, $categoria, $invitado, $fecha_actual, $id);
+                    $stmt->execute();
+
+                    if($stmt->affected_rows > 0 || $stmt->sqlstate == "00000") {
+
+                        $respuesta = array(
+                            'status' => "Correcto",
+                            'accion' => $_POST['accion']
+                        );
+
+                    } else {
+
+                        $respuesta = array(
+                            'status' => "Error",
+                            'accion' => $_POST['accion']
+                        );
+
+                    }
+
+                    $stmt->close();
+                    echo json_encode($respuesta);
+
+                } catch(Exception $e) {
+
+                    die("Error: " . $e->getMessage());
+
+                }
+
+            }
 
         }
 
-        //elimiar
+        else if($_POST['accion'] == 'eliminar') {
+
+            if(!empty($_POST['id'])) {
+
+                $id = (int) $_POST['id'];
+
+                try {
+
+                    $stmt = $conn->prepare("DELETE FROM eventos WHERE evento_id = ?");
+                    $stmt->bind_param("i", $id);
+                    $stmt->execute();
+
+                    if($stmt->affected_rows > 0) {
+
+                        $respuesta = array(
+                            'status' => "Correcto",
+                            'id_eliminado' => $id
+                        );
+
+                    } else {
+
+                        $respuesta = array(
+                            'status' => "Error"
+                        );
+
+                    }
+
+                    $stmt->close();
+                    echo json_encode($respuesta);
+
+                } catch(Exception $e) {
+
+                    die("Error: " . $e->getMessage());
+
+                }
+
+            }
+
+        }
+
         $conn->close();
 
     } else {

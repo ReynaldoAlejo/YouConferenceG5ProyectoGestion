@@ -44,7 +44,7 @@
                   <div class="box-body">
                         <div class="form-group">
                               <label for="nombre_cat">Nombre de la categoría</label>
-                              <input type="text" class="form-control" id="nombre_cat" placeholder="Ingresa el nombre de la categoría" autofocus maxlength="30">
+                              <input type="text" class="form-control" id="nombre_cat" placeholder="Ingresa el nombre de la categoría" autofocus>
                               <span class="help-block" id="valid_cat" style="display: none;"></span>
                         </div>
                         <div class="form-group">

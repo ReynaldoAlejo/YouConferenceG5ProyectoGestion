@@ -29,8 +29,8 @@ require_once 'includes/templates/header.php';
         <ul class="lista-precios clearfix">
           <li>
                 <div class="tabla-precio">
-                  <h3>Pase por día (viernes)</h3>
-                  <p class="numero">$30</p>
+                  <h3>Pase por día </h3>
+                  <p class="numero">$ 30</p>
                 <ul>
                     <li>Bocadillos gratis</li>
                     <li>Todas las conferencias</li>
@@ -61,7 +61,7 @@ require_once 'includes/templates/header.php';
           </li>
           <li>
                 <div class="tabla-precio">
-                  <h3>Pase por 2 días (viernes y sábado)</h3>
+                  <h3>Pase por 2 días</h3>
                   <p class="numero">$45</p>
                 <ul>
                     <li>Bocadillos gratis</li>
@@ -83,77 +83,78 @@ require_once 'includes/templates/header.php';
         <h3>Elige tus talleres</h3>
         <div class="caja">
           
-          <?php 
+        <?php 
         
-            try {
+        try {
 
-              require_once 'includes/funciones/bd_conexion.php';
+          require_once 'includes/funciones/bd_conexion.php';
 
-              $sql = "SELECT eventos.*, categoria_evento.cat_evento, invitados.nombre_invitado, invitados.apellido_invitado";
-              $sql .= " FROM eventos ";
-              $sql .= " JOIN categoria_evento ";
-              $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
-              $sql .= " JOIN invitados ";
-              $sql .= " ON eventos.id_inv = invitados.invitado_id ";
-              $sql .= " ORDER BY eventos.fecha_evento, eventos.id_cat_evento, eventos.hora_evento";
+          $sql = "SELECT eventos.*, categoria_evento.cat_evento, invitados.nombre_invitado, invitados.apellido_invitado";
+          $sql .= " FROM eventos ";
+          $sql .= " JOIN categoria_evento ";
+          $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
+          $sql .= " JOIN invitados ";
+          $sql .= " ON eventos.id_inv = invitados.invitado_id ";
+          $sql .= " ORDER BY eventos.fecha_evento, eventos.id_cat_evento, eventos.hora_evento";
 
-              $resultado = $conn->query($sql);
+          $resultado = $conn->query($sql);
 
-              $eventos = array();
+          $eventos = array();
 
-              setlocale(LC_ALL, "es_ES");
+          setlocale(LC_ALL, "es_ES");
 
-              while($evento = $resultado->fetch_assoc()) {
+          while($evento = $resultado->fetch_assoc()) {
 
-                $dia_semana = strftime("%A", strtotime($evento['fecha_evento']));
+            $dia_semana = strftime("%A", strtotime($evento['fecha_evento']));
 
-                $dia = array(
-                  'nombre' => $evento['nombre_evento'],
-                  'id' => $evento['evento_id'],
-                  'hora' => strftime("%H:%M", strtotime($evento['hora_evento'])),
-                  'nombre_invitado' => $evento['nombre_invitado'],
-                  'apellido_invitado' => $evento['apellido_invitado']
-                );
-                
-                $eventos[$dia_semana][$evento['cat_evento']][] = $dia;
-
-              }
-
-              foreach($eventos as $dia => $categorias) : ?>
-
-                <div id='<?php echo str_replace("á", "a", $dia); ?>' class='contenido-dia clearfix'>
-                <h4><?php echo ucfirst($dia); ?></h4>
-
-                <?php foreach($categorias as $categoria => $eventos) : ?>
-
-                  <div>
-                  <p><?php echo $categoria; ?>:</p>
-
-                  <?php foreach($eventos as $posicion => $evento) : ?>
-
-                    <label>
-                    <input type="checkbox" name="registro[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['id']; ?>">
-                    <time><?php echo $evento['hora']; ?></time> <?php echo $evento['nombre']; ?>
-                    </label>
-                    <span class="autor"><?php echo $evento['nombre_invitado'] . " " . $evento['apellido_invitado']; ?></span>
-
-            <?php endforeach; ?>
-
-                  </div>
-
-            <?php endforeach; ?>
-
-                </div>
-
-            <?php endforeach;
+            $dia = array(
+              'nombre' => $evento['nombre_evento'],
+              'id' => $evento['evento_id'],
+              'hora' => strftime("%H:%M", strtotime($evento['hora_evento'])),
+              'nombre_invitado' => $evento['nombre_invitado'],
+              'apellido_invitado' => $evento['apellido_invitado']
+            );
             
-            } catch(Exception $e) {
+            $eventos[$dia_semana][$evento['cat_evento']][] = $dia;
 
-                die("Ha ocurrido un error al tratar de mostrar los talleres disponibles");
+          }
 
-            }
+          foreach($eventos as $dia => $categorias) : ?>
+
+            <div id='<?php echo str_replace("á", "a", $dia); ?>' class='contenido-dia clearfix'>
+            <h4><?php echo ucfirst($dia); ?></h4>
+
+            <?php foreach($categorias as $categoria => $eventos) : ?>
+
+              <div>
+              <p><?php echo $categoria; ?>:</p>
+
+              <?php foreach($eventos as $posicion => $evento) : ?>
+
+                <label>
+                <input type="checkbox" name="registro[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['id']; ?>">
+                <time><?php echo $evento['hora']; ?></time> <?php echo $evento['nombre']; ?>
+                </label>
+                <span class="autor"><?php echo $evento['nombre_invitado'] . " " . $evento['apellido_invitado']; ?></span>
+
+        <?php endforeach; ?>
+
+              </div>
+
+        <?php endforeach; ?>
+
+            </div>
+
+        <?php endforeach;
         
-          ?>
+        } catch(Exception $e) {
+
+            die("Ha ocurrido un error al tratar de mostrar los talleres disponibles");
+
+        }
+    
+      ?>
+
         </div><!--.caja-->
       </div> <!--#eventos-->
 

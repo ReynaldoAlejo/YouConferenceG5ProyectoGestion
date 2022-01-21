@@ -44,16 +44,16 @@
                   <div class="box-body">
                         <div class="form-group">
                               <label for="user">Usuario</label>
-                              <input type="email" class="form-control" name="user" id="user" placeholder="Ingresa el usuario" autocomplete="off" autofocus>
+                              <input type="text" class="form-control" name="user" id="user" placeholder="Ingresa el usuario" autocomplete="off" autofocus maxlength="30">
                               <span class="help-block" id="user_error" style="display: none;"></span>
                         </div>
                         <div class="form-group">
                               <label for="nombre">Nombre</label>
-                              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingresa el nombre, incluyendo apellido" autocomplete="off">
+                              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingresa el nombre, incluyendo apellido" autocomplete="off" maxlength="30">
                         </div>
                         <div class="form-group">
                               <label for="password">Contraseña</label>
-                              <input type="password" class="form-control" name="password" id="password" placeholder="Ingresa la contraseña">
+                              <input type="password" class="form-control" name="password" id="password" placeholder="Ingresa la contraseña" maxlength="30">
                               <span class="help-block" id="valid_pass" style="display: none;"></span>
                         </div>
                         <div class="form-group">

@@ -5,7 +5,7 @@
 ?>
 
   <section class="seccion contenedor">
-    <h2>El mejor sitio de eventos educativos</h2>
+    <h2>El mejor evento de tecnología en español</h2>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
@@ -147,23 +147,13 @@
 
   <?php require_once 'includes/templates/invitados.php'; ?>
 
-  <div class="contador parallax">
-      <div class="contenedor">
-          <ul class="resumen-evento clearfix">
-            <li><p class="numero"></p> Invitados</li>
-            <li><p class="numero"></p> Talleres</li>
-            <li><p class="numero"></p> Días</li>
-            <li><p class="numero"></p> Conferencias</li>
-          </ul>
-      </div> <!--.contenedor-->
-
-  </div> <!--.contador parallax-->
+  
 
   <section class="precios seccion">
     <h2>Precios</h2>
     <div class="contenedor">
         <ul class="lista-precios clearfix">
-          <!-- --> <li>
+          <li>
                 <div class="tabla-precio">
                   <h3>Pase por día</h3>
                   <p class="numero">$30</p>
@@ -177,7 +167,7 @@
           </li>
           <li>
                 <div class="tabla-precio">
-                  <h3>Pase Completo</h3>
+                  <h3>Todos los días</h3>
                   <p class="numero">$50</p>
                 <ul>
                     <li>Bocadillos gratis</li>
@@ -204,12 +194,14 @@
 
   </section> <!--.precios-->
 
-
-
- 
+  
 
 
 
- 
+  
+
+  </div> <!--.newsletter parallax-->
+
+  >
 
   <?php require_once 'includes/templates/footer.php'; ?>

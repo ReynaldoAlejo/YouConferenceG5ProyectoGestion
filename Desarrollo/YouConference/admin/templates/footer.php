@@ -9,7 +9,7 @@ if($pagina !== "login") {
 
 <footer class="main-footer">
     <div >
-      <b>YouConference</b> Linea Base 3
+      <b>YouConference</b> G2 gestión y configuración
     </div>
     
   </footer>

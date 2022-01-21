@@ -44,12 +44,12 @@
                   <div class="box-body">
                         <div class="form-group">
                               <label for="nombre_inv">Nombre</label>
-                              <input type="text" class="form-control" id="nombre_inv" placeholder="Ingresa el nombre del invitado" autofocus maxlength="30">
+                              <input type="text" class="form-control" id="nombre_inv" placeholder="Ingresa el nombre del invitado" autofocus>
                               <span class="help-block" id="valid_name" style="display: none;"></span>      
                         </div>
                         <div class="form-group">
                               <label for="ape_inv">Apellido</label>
-                              <input type="text" class="form-control" id="ape_inv" placeholder="Ingresa el apellido del invitado" maxlength="30">
+                              <input type="text" class="form-control" id="ape_inv" placeholder="Ingresa el apellido del invitado">
                               <span class="help-block" id="valid_ape" style="display: none;"></span>  
                         </div>
                         <div class="form-group">
