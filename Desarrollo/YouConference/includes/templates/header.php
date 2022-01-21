@@ -107,7 +107,7 @@ $pagina = str_replace(".php", "", $archivo);
               <a href="#" id="conferencia">Conferencia</a>
               <a href="#" id="calendario">Calendario</a>
               <a href="#" id="invitados">Invitados</a>
-              <a href="#" id="registro">Reservaciones</a>
+              <a href="registro.php" id="registro">Comprar</a>
           </nav>
       </div> <!--.contenedor clearfix-->
   </div> <!--.barra-->
