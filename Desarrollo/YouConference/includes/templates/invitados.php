@@ -18,7 +18,7 @@
       ?>
 
       <section class="invitados contenedor seccion">
-          <h2>Nuestros Invitados</h2>
+          <h2>Nuestros Ponentes</h2>
               <ul class="lista-invitados clearfix">
 
                 <?php
