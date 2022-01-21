@@ -5,7 +5,7 @@
 ?>
 
   <section class="seccion contenedor">
-    <h2>La mejor conferencia de diseño web en español</h2>
+    <h2>El mejor sitio de eventos educativos</h2>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
@@ -163,7 +163,7 @@
     <h2>Precios</h2>
     <div class="contenedor">
         <ul class="lista-precios clearfix">
-          <li>
+          <!-- --> <li>
                 <div class="tabla-precio">
                   <h3>Pase por día</h3>
                   <p class="numero">$30</p>
@@ -177,7 +177,7 @@
           </li>
           <li>
                 <div class="tabla-precio">
-                  <h3>Todos los días</h3>
+                  <h3>Pase Completo</h3>
                   <p class="numero">$50</p>
                 <ul>
                     <li>Bocadillos gratis</li>
@@ -204,66 +204,12 @@
 
   </section> <!--.precios-->
 
-  <div class="mapa" id="mapa"></div>
 
-  <section class="seccion">
-    <h2>Testimoniales</h2>
-      <div class="testimoniales contenedor clearfix">
-        <div class="testimonial">
-            <blockquote>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <footer class="info-testimonial clearfix">
-                    <img src="img/testimonial.jpg" alt="Testimonial">
-                    <cite>Oswaldo Aponte Escobedo <span>Diseñador en @prisma</span></cite>
-                </footer>
-            </blockquote>
-        </div> <!--.testimonial-->
-        <div class="testimonial">
-            <blockquote>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <footer class="info-testimonial clearfix">
-                    <img src="img/testimonial.jpg" alt="Testimonial">
-                    <cite>Oswaldo Aponte Escobedo <span>Diseñador en @prisma</span></cite>
-                </footer>
-            </blockquote>
-        </div> <!--.testimonial-->
-        <div class="testimonial">
-            <blockquote>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <footer class="info-testimonial clearfix">
-                    <img src="img/testimonial.jpg" alt="Testimonial">
-                    <cite>Oswaldo Aponte Escobedo <span>Diseñador en @prisma</span></cite>
-                </footer>
-            </blockquote>
-        </div> <!--.testimonial-->
-      </div> <!--.testimoniales-->
-  </section>
 
-  <div class="newsletter parallax">
-      <div class="contenido contenedor">
-          <p>regístrate al newsletter:</p>
-          <h3>GdlWebCamp</h3>
-          <a href="#mc_embed_signup" class="boton-newsletter button transparente">Registro</a>
-      </div> <!--.contenedor-->
+ 
 
-  </div> <!--.newsletter parallax-->
 
-  <section class="seccion">
-    <h2>Faltan</h2>
-    <div class="cuenta-regresiva contenedor">
-      <ul class="clearfix">
-        <li><p id="dias" class="numero"></p> Días</li>
-        <li><p id="horas" class="numero"></p> Horas</li>
-        <li><p id="minutos" class="numero"></p> Minutos</li>
-        <li><p id="segundos" class="numero"></p> Segundos</li>
-      </ul>
-    </div>
-  </section>
+
+ 
 
   <?php require_once 'includes/templates/footer.php'; ?>

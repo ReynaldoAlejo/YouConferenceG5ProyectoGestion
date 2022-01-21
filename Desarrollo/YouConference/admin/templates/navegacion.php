@@ -70,7 +70,7 @@
             <li><a href="crear-invitado.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
           </ul>
         </li>
-        <!-- <li class="treeview">
+         <li class="treeview">
           <a href="#">
             <i class="fa fa-address-card"></i>
             <span>Usuarios</span>
@@ -82,7 +82,7 @@
             <li><a href="lista-usuario.php"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
             <li><a href="crear-usuario.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
           </ul>
-        </li> -->
+        </li> 
         <?php if($_SESSION['nivel'] == 1) : ?>
         <li class="treeview">
           <a href="#">
