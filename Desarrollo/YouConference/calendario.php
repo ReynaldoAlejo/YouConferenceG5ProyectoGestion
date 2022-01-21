@@ -5,7 +5,7 @@
 ?>
 
   <section class="seccion contenedor">
-      <h2>Calendario de Eventos</h2>
+      <h2>Calendario de Eventos YouConference</h2>
 
       <?php
 
